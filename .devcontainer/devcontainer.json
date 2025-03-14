@@ -1,6 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json. 
 {
-	"name": "aws-cdk-devcontainer",
+	"name": "ubuntu-cdk-devcontainer",
 
 	// Ensure either `image` _or_ `build` is uncommented below. See https://containers.dev/guide/dockerfile for more information.
 
@@ -27,6 +27,10 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "",
+
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "ubuntu",
 
 	// Configure tool-specific properties.
 	"customizations": {
