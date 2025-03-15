@@ -29,6 +29,7 @@ concurrency:
 jobs:
   # Build job
   build:
+    if: github.repository == 'vt102/dev-website'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -54,6 +55,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: github.repository == 'vt102/dev-website'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
