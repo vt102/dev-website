@@ -1,27 +1,14 @@
 // For format details, see https://aka.ms/devcontainer.json. 
 {
-	"name": "ubuntu-cdk-devcontainer",
-
-	// Ensure either `image` _or_ `build` is uncommented below. See https://containers.dev/guide/dockerfile for more information.
-
-	// Uncomment `image` to get started quickly using the pre-built image from hub.docker.com.
-	// "image": "",
-
-	// Alternatively, uncomment `build` to create your image from scratch using the Dockerfile in this directory.
-    //     
-	// Note that `build.dockerfile` is a path relataive to the devcontainer.json file.
+	"name": "Jekyll Website Workstation",
 	"build": {
         "dockerfile": "Dockerfile"
     },
-
-	// Mount your local AWS CLI settings and credentials as a volume accessible within the container.
 	"mounts": [
-		{ "source": "/Users/${localEnv:USER}/.aws", "target": "/home/ubuntu/.aws", "type": "bind" }
+		{ "source": "/Users/${localEnv:USER}/.aws", "target": "/home/ubuntu/.aws", "type": "bind" },
+		{ "source": "/Users/${localEnv:USER}/.ssh", "target": "/home/ubuntu/.ssh", "type": "bind" },
+		{ "source": "jekyll-website-workstation-bashhistory", "target": "/commandhistory", "type": "volume" }
 	],
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
@@ -32,9 +19,7 @@
     "workspaceFolder": "/workspace",
     "remoteUser": "ubuntu",
 
-	// Configure tool-specific properties.
 	"customizations": {
-		// Configure properties specific to VS Code.
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			// Alternatively, just use Setting Sync to ensure you are always running your
